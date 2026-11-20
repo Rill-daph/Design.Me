@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="id" class="scroll-smooth scroll-pt-20">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+    content="PT Contoh Jaya — mitra digital untuk website, aplikasi mobile, dan konsultasi IT." />
+  <title>DESIGN.ME — Design bangunan untuk kebutuhan Anda</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+
+  <!-- Tailwind CSS v4 (CDN). Untuk produksi, pindahkan isi <style> di bawah ke input.css dan build dengan Tailwind CLI. -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style type="">
+
+  </style>
+  <style type="text/tailwindcss">
+    @theme {
+        --color-utama: #f59e0b;
+        --color-utama-gelap: #CA8A04;
+        --color-aksen: #f59e0b;
+        --color-teks: #1f2937;
+        --color-teks-lembut: #64748b;
+        --color-abu: #EFEDEB;
+        --color-abu-terang: #F9F8F7;
+        --color-garis: #1C1917;
+        --color-navbar: #1C1917;
+
+        --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+        --radius-kartu: 14px;
+        --shadow-kartu: 0 10px 30px -12px rgb(15 23 42 / 0.18);
+        --container-wadah: 1120px;
+
+        /* Sama dengan CSS lama: tampilan HP sampai 800px, desktop mulai 801px */
+        --breakpoint-md: 50.0625rem;
+      }
+
+      @layer base {
+        h1,
+        h2,
+        h3 {
+          @apply mb-3 font-bold leading-tight;
+        }
+        h2 {
+          font-size: clamp(1.6rem, 3vw, 2.25rem);
+        }
+        h3 {
+          font-size: 1.17rem;
+        }
+        :focus-visible {
+          @apply outline-3 outline-offset-2 outline-aksen;
+        }
+      }
+
+      /* Kelas yang dipakai oleh elemen buatan app.js (kartu layanan, status form) — dipertahankan agar app.js tidak perlu diubah */
+      @layer components {
+        .kartu {
+          @apply m-0 rounded-kartu border border-garis bg-white p-7 shadow-kartu;
+        }
+        .kartu h3 {
+          @apply text-utama-gelap;
+        }
+        .kartu-layanan {
+          @apply transition duration-200 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-15px_rgb(29_78_216/0.35)];
+        }
+        .kartu-layanan p {
+          @apply m-0 text-teks-lembut;
+        }
+        .ikon {
+          @apply mb-4 grid size-14 place-items-center rounded-[14px] bg-blue-100 text-[1.6rem];
+        }
+        .info-muat {
+          @apply col-span-full text-center text-teks-lembut;
+        }
+        .berhasil {
+          @apply font-semibold text-green-700;
+        }
+        .gagal {
+          @apply font-semibold text-red-700;
+        }
+      }
+    </style>
+</head>
+
+<body class="bg-white font-sans leading-[1.7] text-teks">
+  <a href="#konten" class="absolute -left-[999px] top-0 z-[100] bg-white px-4 py-2 focus:left-4">Lewati ke konten</a>
+
+  <header class="navbar sticky top-0 z-50 border-b border-garis bg-navbar/90 backdrop-blur-[8px]">
+    <div class="mx-auto flex h-[70px] max-w-wadah items-center justify-between px-6">
+      <a href="#beranda" class="inline-flex items-center gap-[0.6rem] font-extrabold text-white">
+        <span
+          class="grid size-9 place-items-center rounded-[10px] bg-linear-135 from-utama to-utama-gelap text-[0.85rem] text-white">D.E</span>
+        DESIGN.ME
+      </a>
+      <button class="menu-toggle cursor-pointer p-2 *:my-[5px] *:block *:h-0.5 *:w-6 *:bg-white md:hidden"
+        aria-expanded="false" aria-controls="menu" aria-label="Buka menu">
+      </button>
+      <nav id="menu" aria-label="Navigasi utama"
+        class="absolute inset-x-0 top-[70px] hidden flex-col items-center gap-4 border-b border-garis bg-navbar p-6 [&.terbuka]:flex md:static md:flex md:flex-row md:gap-7 md:border-0 md:bg-transparent md:p-0">
+        <a href="#tentang" class="font-medium text-white hover:text-utama">Tentang</a>
+        <a href="#layanan" class="font-medium text-white hover:text-utama">Layanan</a>
+        <a href="#keunggulan" class="font-medium text-white hover:text-utama">Keunggulan</a>
+        <a href="./login.html"
+          class="inline-block cursor-pointer border-2 border-utama bg-utama px-[1.1rem] py-2 font-semibold text-white transition duration-150 hover:-translate-y-0.5 hover:border-utama-gelap hover:bg-utama-gelap">Tambahkan
+          layanan</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="konten">
+    <section id="beranda" class="bg-cover bg-center pt-16 pb-14 text-white md:pt-24 md:pb-20"
+      style="background-image: linear-gradient(rgb(15 23 42 / 70%), rgb(15 23 42 / 70%)), url('./img/Perum.jpg')">
+      <div class="mx-auto max-w-[820px] px-6 text-center">
+        <p class="mb-2 text-[0.85rem] font-bold uppercase tracking-[0.12em] text-aksen">
+          Perusahaan Architech Sejak 2015
+        </p>
+        <h1 class="text-[clamp(2.2rem,5vw,3.5rem)] font-extrabold">
+          Jadikan bangunan Anda <br>
+          <span class="text-aksen">lebih nyaman</span>
+        </h1>
+        <p class="mx-auto mb-8 max-w-[620px] text-[1.15rem] opacity-90">
+          Kami membantu membuat design bangunan anda tampil profesional dan lebih nyaman,
+          keamanan, kebersihan dan tampilan yang tepat sasaran.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="#kontak"
+            class="inline-block cursor-pointer border-3 border-aksen bg-aksen px-6 py-3 font-semibold text-teks transition duration-150 hover:-translate-y-0.5">Konsultasi
+            Gratis</a>
+          <a href="#layanan"
+            class="inline-block cursor-pointer border-3 border-white/60 bg-transparent px-6 py-3 font-semibold text-white transition duration-150 hover:-translate-y-0.5 hover:border-white hover:bg-white hover:text-utama-gelap">Lihat
+            Layanan</a>
+        </div>
+        <ul
+          class="mt-14 grid grid-cols-3 gap-4 opacity-90 [&_strong]:block [&_strong]:text-[1.5rem] [&_strong]:font-extrabold md:[&_strong]:text-[2rem]">
+          <li><strong>10+</strong> Tahun pengalaman</li>
+          <li><strong>135+</strong> Proyek selesai</li>
+          <li><strong>98%</strong> Klien puas</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="tentang" class="bg-abu-terang py-20">
+      <div class="mx-auto grid max-w-wadah grid-cols-1 items-start gap-12 px-6 md:grid-cols-2">
+        <div>
+          <p class="mb-2 text-[0.85rem] font-bold uppercase tracking-[0.12em] text-utama">
+            Tentang Kami
+          </p>
+          <h2>Tim kecil, dampak besar</h2>
+          <p class="mt-4">
+            Berawal dari sebuah ruko di Surabaya pada 2015, DESIGN.ME
+            kini dipercaya ratusan klien dari berbagai personal. Kami
+            percaya rumah yang baik itu nyaman, aman, dan
+            benar-benar membantu diri terus tumbuh.
+          </p>
+        </div>
+        <div class="grid gap-5">
+          <article class="border border-garis bg-white p-7 shadow-kartu">
+            <h3 class="text-utama-gelap">Visi</h3>
+            <p>Menjadi architechtur pilihan di Indonesia.</p>
+          </article>
+          <article class="rounded-kartu border border-garis bg-white p-7 shadow-kartu">
+            <h3 class="text-utama-gelap">Misi</h3>
+            <ul class="*:before:mr-[0.6rem] *:before:font-extrabold *:before:text-utama *:before:content-['✓']">
+              <li>Mendesign rumah yang nyaman dipakai.</li>
+              <li>Memberi harga yang jujur dan terjangkau.</li>
+              <li>Mendampingi klien setelah proyek selesai.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="layanan" class="bg-abu py-20">
+      <div class="mx-auto max-w-wadah px-6">
+        <div class="mx-auto mb-12 max-w-[640px] text-center">
+          <p class="mb-2 text-[0.85rem] font-bold uppercase tracking-[0.12em] text-utama">
+            Layanan Kami
+          </p>
+          <h2>Solusi lengkap untuk Anda</h2>
+        </div>
+        <div class="grid grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-6">
+          <article class="kartu kartu-layanan">
+            <span class="ikon" aria-hidden="true">💬</span>
+            <h3>Layanan Konsultasi</h3>
+            <p>Diskusikan kebutuhan, anggaran, dan konsep awal proyek bersama tim kami.</p>
+          </article>
+          <article class="kartu kartu-layanan">
+            <span class="ikon" aria-hidden="true">📐</span>
+            <h3>Layanan Desain</h3>
+            <p>Rancang bangunan yang fungsional dan sesuai kebutuhan Anda.</p>
+          </article>
+          <article class="kartu kartu-layanan">
+            <span class="ikon" aria-hidden="true">🛋️</span>
+            <h3>Layanan Desain Interior</h3>
+            <p>Atur tata ruang, material, dan elemen interior untuk suasana yang nyaman.</p>
+          </article>
+          <article class="kartu kartu-layanan">
+            <span class="ikon" aria-hidden="true">🏗️</span>
+            <h3>Manajemen Proyek</h3>
+            <p>Koordinasikan jadwal dan mutu pekerjaan hingga proyek selesai.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="layanan" class="bg-abu py-20">
+      <div class="mx-auto max-w-wadah px-6">
+        <div class="mx-auto mb-12 max-w-[640px] text-center">
+          <p class="mb-2 text-[0.85rem] font-bold uppercase tracking-[0.12em] text-utama">
+            Layanan Pilihan
+          </p>
+          <h2>Layanan yang anda pilih</h2>
+        </div>
+        <div id="daftar-layanan" class="grid grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-6" aria-live="polite">
+          <p class="info-muat">Memuat layanan...</p>
+        </div>
+      </div>
+    </section>
+
+
+
+    <section id="keunggulan" class="bg-abu-terang py-20">
+      <div class="mx-auto max-w-wadah px-6">
+        <div class="mx-auto mb-12 max-w-[640px] text-center">
+          <p class="mb-2 text-[0.85rem] font-bold uppercase tracking-[0.12em] text-utama">
+            Kenapa Kami
+          </p>
+          <h2>Alasan klien memilih DESIGN.ME</h2>
+        </div>
+        <div class="grid grid-cols-2 gap-8 text-center md:grid-cols-4">
+          <article>
+            <span class="mx-auto mb-4 grid size-14 place-items-center rounded-[14px] bg-amber-100 text-[1.6rem]"
+              aria-hidden="true">⚡</span>
+            <h3>Cepat &amp; Tepat Waktu</h3>
+            <p class="text-teks-lembut">
+              Jadwal jelas sejak awal, progres dilaporkan setiap minggu.
+            </p>
+          </article>
+          <article>
+            <span class="mx-auto mb-4 grid size-14 place-items-center rounded-[14px] bg-amber-100 text-[1.6rem]"
+              aria-hidden="true">🛡️</span>
+            <h3>Aman &amp; Andal</h3>
+            <p class="text-teks-lembut">
+              Praktik keamanan standar industri di setiap proyek.
+            </p>
+          </article>
+          <article>
+            <span class="mx-auto mb-4 grid size-14 place-items-center rounded-[14px] bg-amber-100 text-[1.6rem]"
+              aria-hidden="true">🤝</span>
+            <h3>Pendampingan Penuh</h3>
+            <p class="text-teks-lembut">
+              Dukungan dan pelatihan gratis tiga bulan setelah peluncuran.
+            </p>
+          </article>
+          <article>
+            <span class="mx-auto mb-4 grid size-14 place-items-center rounded-[14px] bg-amber-100 text-[1.6rem]"
+              aria-hidden="true">💰</span>
+            <h3>Harga Transparan</h3>
+            <p class="text-teks-lembut">
+              Tanpa biaya tersembunyi, rincian biaya disepakati di depan.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-abu py-20">
+      <div class="mx-auto max-w-wadah px-6">
+        <div class="mx-auto mb-12 max-w-[640px] text-center">
+          <p class="mb-2 text-[0.85rem] font-bold uppercase tracking-[0.12em] text-utama">
+            Testimoni
+          </p>
+          <h2>Apa kata klien kami</h2>
+        </div>
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+          <figure class="rounded-kartu border border-garis bg-white p-7 shadow-kartu">
+            <blockquote class="mb-4 italic">
+              "Rumah kami jadi jauh lebih nyaman ditempati. kebersihan dan tampilan terjamin lengkap."
+            </blockquote>
+            <figcaption class="text-[0.95rem] text-teks-lembut">
+              <strong>Rina</strong> — Pemilik Kedai Kopi
+            </figcaption>
+          </figure>
+          <figure class="rounded-kartu border border-garis bg-white p-7 shadow-kartu">
+            <blockquote class="mb-4 italic">
+              "Timnya sabar menjelaskan hal teknis dengan bahasa yang mudah
+              dipahami."
+            </blockquote>
+            <figcaption class="text-[0.95rem] text-teks-lembut">
+              <strong>Andi</strong> — Manajer Bengkel
+            </figcaption>
+          </figure>
+          <figure class="rounded-kartu border border-garis bg-white p-7 shadow-kartu">
+            <blockquote class="mb-4 italic">
+              "Design bagunan kami selesai tepat waktu dan bagus, bisa di ulangi lagi."
+            </blockquote>
+            <figcaption class="text-[0.95rem] text-teks-lembut">
+              <strong>Sari</strong> — Pemilik perumahan
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontak" class="bg-abu-terang py-20">
+      <div class="mx-auto grid max-w-wadah grid-cols-1 items-start gap-12 px-6 md:grid-cols-2">
+        <div>
+          <p class="mb-2 text-[0.85rem] font-bold uppercase tracking-[0.12em] text-utama">
+            Kontak
+          </p>
+          <h2>Mari wujudkan ide Anda</h2>
+          <p class="mt-4">
+            Ceritakan kebutuhan Anda, tim kami akan membalas dalam 1×24 jam
+            kerja.
+          </p>
+          <ul class="mt-6 grid gap-[0.9rem] [&_span]:inline-block [&_span]:w-7">
+            <li>
+              <span aria-hidden="true">📍</span> Jl. Contoh No. 123, Surabaya
+            </li>
+            <li><span aria-hidden="true">📞</span> (031) 123-4567</li>
+            <li><span aria-hidden="true">✉️</span> halo@contohjaya.co.id</li>
+            <li>
+              <span aria-hidden="true">🕘</span> Senin–Jumat, 08.00–17.00
+            </li>
+          </ul>
+        </div>
+
+        <form id="form-kontak"
+          class="flex flex-col gap-[0.4rem] rounded-kartu border border-garis bg-white p-7 shadow-kartu">
+          <label for="nama" class="text-[0.95rem] font-semibold">Nama</label>
+          <input id="nama" name="nama" required maxlength="100" autocomplete="name"
+            class="mb-[0.6rem] rounded-[10px] border border-slate-300 px-[0.9rem] py-[0.7rem] focus:border-utama focus:outline-3 focus:outline-blue-200" />
+
+          <label for="email" class="text-[0.95rem] font-semibold">Email</label>
+          <input id="email" name="email" type="email" required maxlength="100" autocomplete="email"
+            class="mb-[0.6rem] rounded-[10px] border border-slate-300 px-[0.9rem] py-[0.7rem] focus:border-utama focus:outline-3 focus:outline-blue-200" />
+
+          <label for="isi" class="text-[0.95rem] font-semibold">Pesan</label>
+          <textarea id="isi" name="isi" rows="5" required
+            class="mb-[0.6rem] rounded-[10px] border border-slate-300 px-[0.9rem] py-[0.7rem] focus:border-utama focus:outline-3 focus:outline-blue-200"></textarea>
+
+          <button type="submit"
+            class="inline-block cursor-pointer self-start rounded-full border-2 border-utama bg-utama px-6 py-3 font-semibold text-white transition duration-150 hover:-translate-y-0.5 hover:border-utama-gelap hover:bg-utama-gelap disabled:translate-y-0 disabled:cursor-wait disabled:opacity-60">
+            Kirim Pesan
+          </button>
+          <p id="status-kontak" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-navbar pt-12 pb-6 text-slate-300">
+    <div class="mx-auto flex max-w-wadah flex-wrap justify-between gap-8 px-6">
+      <div>
+        <a href="#beranda" class="inline-flex items-center gap-[0.6rem] font-extrabold text-white">
+          <span
+            class="grid size-9 place-items-center rounded-[10px] bg-linear-135 from-utama to-utama-gelap text-[0.85rem] text-white">D.E</span>
+          DESIGN.ME
+        </a>
+        <p class="mt-3">Solusi perencanaan yang rapi, cepat, dan terpercaya.</p>
+      </div>
+      <nav aria-label="Navigasi footer" class="flex gap-6 *:text-slate-300 *:hover:text-white">
+        <a href="#tentang">Tentang</a>
+        <a href="#layanan">Layanan</a>
+        <a href="#kontak">Kontak</a>
+      </nav>
+    </div>
+    <p class="mt-8 border-t border-slate-800 pt-6 text-center text-[0.9rem]">
+      &copy; <span id="tahun">2026</span> DESIGN.MD. Semua hak
+      dilindungi.
+    </p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
